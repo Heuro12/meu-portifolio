@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Projetos{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/projetos.css') }}">
+{% endblock %}
+
+{% block content %}
+<h2>Projetos <span>🏆</span></h2>
+
+<div class="projetos-container">
+    {% if projetos %}
+        {% for p in projetos %}
+        <div class="projeto-card">
+            
+            {% if p[4] %}  <!-- imagem -->
+                <img src="{{ url_for('static', filename='uploads/' ~ p[4]) }}" 
+                     alt="{{ p[1] }}" 
+                     class="projeto-img">
+            {% endif %}
+            
+            <h3>{{ p[1] }}</h3> <!-- título -->
+            <p>{{ p[2] }}</p>   <!-- descrição -->
+            
+            {% if p[3] %}
+                <a href="{{ p[3] }}" target="_blank" class="btn">Visitar 🔗</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Nenhum projeto cadastrado ainda.</p>
+    {% endif %}
+</div>
+{% endblock %}

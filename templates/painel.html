@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="painel-container">
+
+    <h2 class="titulo-painel">Painel de Controle (RAIS)</h2>
+
+    <!-- LISTA DE PROJETOS -->
+    <h3 class="subtitulo">Projetos Cadastrados</h3>
+    {% if projetos %}
+        <div class="projetos-grid">
+            {% for p in projetos %}
+                <div class="projeto-card">
+                    {% if p[4] %}
+                        <img src="{{ url_for('static', filename='uploads/' ~ p[4]) }}" alt="Imagem do projeto">
+                    {% endif %}
+                    <h4>{{ p[1] }}</h4>
+                    <p>{{ p[2] }}</p>
+                    <a href="{{ p[3] }}" target="_blank" class="btn-link">Visitar 🔗</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="vazio">Nenhum projeto ainda.</p>
+    {% endif %}
+
+    <hr>
+
+    <!-- FORMULÁRIO -->
+    <h3 class="subtitulo">Adicionar Novo Projeto</h3>
+    <form method="POST" action="{{ url_for('painel') }}" enctype="multipart/form-data" class="form-projeto">
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" name="titulo" placeholder="Título" required>
+
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao" placeholder="Breve descrição"></textarea>
+
+        <label for="link">Link do Projeto</label>
+        <input type="url" id="link" name="link" placeholder="https://...">
+
+        <label for="imagem">Imagem do Projeto</label>
+        <input type="file" id="imagem" name="imagem" accept="image/*">
+
+        <button type="submit" class="btn-salvar">Salvar 🚀</button>
+    </form>
+
+</div>
+{% endblock %}

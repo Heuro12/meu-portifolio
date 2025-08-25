@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Login RAIS 🔒</h2>
+
+<form method="POST">
+    <label>Usuário:</label><br>
+    <input type="text" name="username" required><br><br>
+
+    <label>Senha:</label><br>
+    <input type="password" name="password" required><br><br>
+
+    <button type="submit">Entrar</button>
+</form>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div style="color:red;">
+            {% for msg in messages %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+{% endblock %}

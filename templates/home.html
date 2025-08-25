@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Meu Portfólio{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1>Bem-vindo 👋</h1>
+<p>Sou Heuro, desenvolvedor e criador de projetos digitais.</p>
+
+<section class="objetivos">
+    <h2>Meus Objetivos 🚀</h2>
+    <ul>
+        <li>Criar soluções digitais criativas</li>
+        <li>Aprimorar minhas habilidades em programação</li>
+        <li>Colaborar em projetos inovadores</li>
+    </ul>
+</section>
+{% endblock %}

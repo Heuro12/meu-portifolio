@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meu Portfólio{% endblock %}</title>
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+    <!-- CSS específico de cada página -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">heuro</div>
+        <ul>
+            <li><a href="{{ url_for('projetos') }}">Projetos</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTEÚDO -->
+    <main class="conteudo">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="rodape">
+        <p>© 2025 - Meu Portfólio</p>
+        <p>Desenvolvido por Heuro | Objetivo: compartilhar projetos, estudos e aprendizados.</p>
+        <p>Este portfólio é atualizado constantemente com novos trabalhos e ideias.</p>
+    </footer>
+
+</body>
+</html>
