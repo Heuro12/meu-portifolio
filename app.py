@@ -3,7 +3,7 @@ import sqlite3, time, os
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.secret_key = "heurosamp"  # Troque depois por algo mais seguro
+app.secret_key = "chave_super_secreta"  # Troque depois por algo mais seguro
 
 # ========================
 # CONFIGS DE SEGURANÇA
@@ -157,4 +157,3 @@ if __name__ == "__main__":
     # Render exige que rode na porta fornecida
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-
